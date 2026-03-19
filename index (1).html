@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta property="og:title" content="PanoTitan | 360° Virtual Tours | Saint Augustine, FL">
+<meta property="og:description" content="Professional 360° vehicle spins and virtual tours for car dealerships, real estate agents, and hospitality businesses across Northeast Florida.">
+<meta property="og:image" content="https://panotitan.com/og-image.png">
+<meta property="og:url" content="https://panotitan.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://panotitan.com/og-image.png">
+<title>PanoTitan | 360° Virtual Tours & Photography | Saint Augustine, FL</title>
+<meta name="description" content="PanoTitan delivers professional 360° vehicle spins and virtual tours for car dealerships, real estate agents, and hospitality businesses across Northeast Florida.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0b;--bg2:#111113;--bg3:#1a1a1e;--accent:#1A6EFF;--accent2:#4d8fff;--text:#f0f0f0;--muted:#888;--border:#222}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Syne',sans-serif}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,11,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--text);transition:color 0.2s}
+.nav-cta{background:var(--accent);color:#fff;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;font-family:'Syne',sans-serif;cursor:pointer;border:none;transition:background 0.2s}
+.nav-cta:hover{background:#2a7aff}
+
+/* HERO */
+.hero{padding:110px 60px 70px;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-glow{position:absolute;top:0;right:0;width:600px;height:600px;background:radial-gradient(circle,rgba(26,110,255,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(26,110,255,0.1);border:1px solid rgba(26,110,255,0.25);color:var(--accent2);padding:7px 16px;border-radius:100px;font-size:12px;font-weight:500;margin-bottom:24px;width:fit-content}
+.hero-badge-dot{width:5px;height:5px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-size:clamp(40px,5.5vw,76px);font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:20px}
+.hero h1 .accent{color:var(--accent)}
+.hero-sub{font-size:17px;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{background:var(--accent);color:#fff;padding:15px 30px;border-radius:7px;font-size:15px;font-weight:600;font-family:'Syne',sans-serif;cursor:pointer;border:none;transition:transform 0.2s,background 0.2s;display:inline-block}
+.btn-primary:hover{background:#2a7aff;transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--text);padding:15px 30px;border-radius:7px;font-size:15px;font-weight:500;font-family:'Syne',sans-serif;cursor:pointer;border:1px solid #333;transition:border-color 0.2s;display:inline-block}
+.btn-secondary:hover{border-color:#555}
+.hero-markets{display:flex;gap:0;border-top:1px solid var(--border);padding-top:28px}
+.hero-market{padding:0 24px;border-right:1px solid var(--border);font-size:12px;color:var(--muted)}
+.hero-market:first-child{padding-left:0}
+.hero-market:last-child{border-right:none}
+.hero-market strong{display:block;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px}
+.tour-container{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--bg3)}
+.tour-label{position:absolute;top:14px;left:14px;z-index:10;background:rgba(10,10,11,0.9);border:1px solid var(--border);color:var(--accent);padding:6px 12px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;backdrop-filter:blur(8px)}
+.tour-container iframe{width:100%;height:420px;border:none;display:block}
+
+/* STATS */
+.stats{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:40px;border-right:1px solid var(--border);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-label{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* PROBLEM */
+.problem{padding:90px 60px;background:var(--bg)}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:600}
+.problem h2{font-size:clamp(28px,3.5vw,50px);font-weight:800;line-height:1.1;letter-spacing:-1px;max-width:680px;margin-bottom:20px}
+.problem p{font-size:16px;color:var(--muted);max-width:600px;line-height:1.8;font-weight:300}
+
+/* SERVICES */
+.services{padding:90px 60px;background:var(--bg2)}
+.services-header{margin-bottom:50px}
+.services-header h2{font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+.services-header p{font-size:16px;color:var(--muted);font-weight:300}
+.service-block{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+.service-block:last-child{margin-bottom:0}
+.service-card{background:var(--bg3);padding:48px 40px;transition:background 0.3s}
+.service-card:hover{background:#1e1e24}
+.service-card.full{grid-column:1/-1}
+.service-num{font-family:'Syne',sans-serif;font-size:60px;font-weight:800;color:rgba(26,110,255,0.07);line-height:1;margin-bottom:20px}
+.service-card h3{font-size:22px;font-weight:700;margin-bottom:14px;letter-spacing:-0.3px}
+.service-card p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.service-tag{display:inline-block;font-size:11px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;font-weight:600;border:1px solid rgba(26,110,255,0.3);padding:6px 12px;border-radius:100px}
+.service-tour{margin-top:28px;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.service-tour iframe{width:100%;height:360px;border:none;display:block}
+.service-tour-label{background:var(--bg2);padding:10px 16px;font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;border-top:1px solid var(--border)}
+
+/* PROCESS */
+.process{padding:90px 60px;background:var(--bg)}
+.process h2{font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-1px;margin-bottom:56px}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:24px;left:12.5%;right:12.5%;height:1px;background:var(--border)}
+.step{padding:0 20px}
+.step-num{width:48px;height:48px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--accent);margin-bottom:20px;position:relative;z-index:1}
+.step h4{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px}
+.step p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* PRICING */
+.pricing{padding:90px 60px;background:var(--bg2)}
+.pricing-header{margin-bottom:50px}
+.pricing-header h2{font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+.pricing-header p{font-size:16px;color:var(--muted);font-weight:300}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.price-card{background:var(--bg3);padding:40px;position:relative}
+.price-card.featured{background:var(--accent)}
+.price-card.featured .price-desc,.price-card.featured .price-per,.price-card.featured .price-features li{color:rgba(255,255,255,0.7)}
+.price-card.featured .price-features li{border-bottom-color:rgba(255,255,255,0.12)}
+.price-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600}
+.price-card.featured .price-label{color:rgba(255,255,255,0.6)}
+.price-amount{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;line-height:1;margin-bottom:6px;letter-spacing:-1px}
+.price-per{font-size:13px;color:var(--muted);margin-bottom:16px}
+.price-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:24px;font-weight:300}
+.price-features{list-style:none;margin-bottom:32px}
+.price-features li{font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.check{color:var(--accent);font-weight:700}
+.price-card.featured .check{color:#fff}
+.price-btn{width:100%;padding:14px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:6px;font-family:'Syne',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s}
+.price-btn:hover{background:var(--bg2)}
+.price-card.featured .price-btn{background:#fff;color:var(--accent);border:none}
+.price-card.featured .price-btn:hover{background:#f0f0f0}
+.featured-badge{position:absolute;top:-1px;right:32px;background:#fff;color:var(--accent);font-size:10px;font-weight:700;padding:5px 14px;letter-spacing:1px;text-transform:uppercase;font-family:'Syne',sans-serif}
+
+/* ABOUT */
+.about{padding:90px 60px;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-content h2{font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-1px;margin-bottom:20px}
+.about-content p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px;font-weight:300}
+.about-markets{display:flex;flex-direction:column;gap:2px;margin-top:32px}
+.market-item{background:var(--bg3);padding:18px 20px;display:flex;align-items:center;gap:14px}
+.market-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;flex-shrink:0}
+.market-item span{font-size:13px;color:var(--muted)}
+.market-item strong{color:var(--text);font-family:'Syne',sans-serif;display:block;font-size:14px;margin-bottom:2px}
+.about-visual{background:var(--bg3);border:1px solid var(--border);padding:36px}
+.about-stat{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+.about-stat:last-child{border-bottom:none}
+.about-stat-label{font-size:13px;color:var(--muted)}
+.about-stat-value{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--accent)}
+
+/* CONTACT */
+.contact{padding:90px 60px;background:var(--bg2)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info h2{font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-1px;margin-bottom:20px}
+.contact-info p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:32px;font-weight:300}
+.contact-details{display:flex;flex-direction:column;gap:2px}
+.contact-item{background:var(--bg3);padding:18px 20px;display:flex;align-items:center;gap:14px}
+.contact-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;flex-shrink:0}
+.contact-item span{font-size:13px;color:var(--muted)}
+.contact-item strong{color:var(--text);font-family:'Syne',sans-serif;display:block;font-size:14px;margin-bottom:2px}
+.contact-form{background:var(--bg3);border:1px solid var(--border);padding:40px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:14px 16px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;transition:border-color 0.2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--accent)}
+.form-group textarea{height:120px;resize:vertical}
+.form-group select option{background:var(--bg3)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-family:'Syne',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.2s;margin-top:8px}
+.form-submit:hover{background:#2a7aff;transform:translateY(-1px)}
+
+/* CTA */
+.cta-section{background:var(--accent);padding:90px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-section h2{font-size:clamp(32px,5vw,64px);font-weight:800;letter-spacing:-1.5px;margin-bottom:20px;color:#fff}
+.cta-section p{font-size:18px;color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 40px;font-weight:300}
+.cta-btn{background:#fff;color:var(--accent);padding:18px 40px;border-radius:7px;font-size:16px;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;border:none;display:inline-block;transition:transform 0.2s}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-note{margin-top:20px;font-size:13px;color:rgba(255,255,255,0.45)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 60px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800}
+.footer-logo span{color:var(--accent)}
+.footer-info{font-size:13px;color:var(--muted);text-align:center;line-height:1.8}
+.footer-copy{font-size:13px;color:var(--muted)}
+
+/* SUCCESS MESSAGE */
+.form-success{display:none;background:rgba(26,110,255,0.1);border:1px solid rgba(26,110,255,0.3);color:var(--accent2);padding:16px;border-radius:6px;text-align:center;font-size:14px;margin-top:16px}
+@media(max-width:900px){nav{padding:16px 24px}.nav-links{display:none}.hero{padding:90px 24px 50px}.hero-inner{grid-template-columns:1fr;gap:40px}.tour-container iframe{height:300px}.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.service-block{grid-template-columns:1fr}.services{padding:60px 24px}.process{padding:60px 24px}.process-steps{grid-template-columns:repeat(2,1fr);gap:40px}.process-steps::before{display:none}.step{padding:0}.pricing{padding:60px 24px}.pricing-grid{grid-template-columns:1fr}.about{padding:60px 24px;grid-template-columns:1fr}.contact{padding:60px 24px}.contact-inner{grid-template-columns:1fr}.cta-section{padding:60px 24px}.hero-markets{flex-wrap:wrap}.hero-market{padding:12px 0;border-right:none;border-bottom:1px solid var(--border);width:100%}.hero-market:last-child{border-bottom:none}.form-row{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:20px;text-align:center}.problem{padding:60px 24px}}@media(max-width:600px){.stats-grid{grid-template-columns:1fr}.stat-item{border-right:none;border-bottom:1px solid var(--border)}.stat-item:last-child{border-bottom:none}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Pano<span>Titan</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Book Free Spin</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Now serving Northeast Florida</div>
+      <h1>Every Angle.<br><span class="accent">Every Vehicle.</span><br>Every Sale.</h1>
+      <p class="hero-sub">360° interactive spins and virtual tours that keep buyers on your listings longer — and put more money on your bottom line.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Book a Free Demo Spin →</a>
+        <a href="#services" class="btn-secondary">See Our Services</a>
+      </div>
+      <div class="hero-markets">
+        <div class="hero-market"><strong>Car Dealerships</strong>Lots · Franchises</div>
+        <div class="hero-market"><strong>Real Estate</strong>Residential · Luxury</div>
+        <div class="hero-market"><strong>Hospitality</strong>B&Bs · Airbnb · Hotels</div>
+      </div>
+    </div>
+    <div>
+      <div class="tour-container">
+        <div class="tour-label">Live 360° Demo — Drag to Explore</div>
+        <iframe src="https://app.cloudpano.com/tours/S7vyUc742WRo" allow="vr;accelerometer;gyroscope;fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat-item"><div class="stat-num">20%</div><div class="stat-label">More time spent<br>on listings</div></div>
+    <div class="stat-item"><div class="stat-num">$300</div><div class="stat-label">More per vehicle<br>sold on average</div></div>
+    <div class="stat-item"><div class="stat-num">68%</div><div class="stat-label">More views on listings<br>with virtual tours</div></div>
+    <div class="stat-item"><div class="stat-num">24hr</div><div class="stat-label">Delivery on most<br>projects</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-label">The Problem</div>
+  <h2>Your Listings Are Losing Buyers Before They Call</h2>
+  <p>Static photos don't cut it anymore. Today's car buyers, home shoppers, and travel guests spend hours researching online before they ever make contact. If your listings don't give them an immersive, interactive experience — they move on to a competitor who does.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-label">What We Do</div>
+    <h2>Three Markets. One Solution.</h2>
+    <p>We come to you. We shoot. We deliver the same day.</p>
+  </div>
+  <div class="service-block">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Automotive 360° Spins</h3>
+      <p>Full exterior and interior interactive spins for your vehicle inventory. We come to your lot, capture every vehicle, and deliver embed-ready spins the same day. Plugs directly into Dealer.com, DealerOn, and all major platforms.</p>
+      <span class="service-tag">Starting at $35/vehicle</span>
+      <div class="service-tour">
+        <iframe src="https://app.cloudpano.com/tours/S7vyUc742WRo" allow="vr;accelerometer;gyroscope;fullscreen" allowfullscreen></iframe>
+        <div class="service-tour-label">Live Demo — Drag to Explore</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Real Estate Virtual Tours</h3>
+      <p>Let buyers fall in love before the showing. Walk them through every room from their phone or laptop. Properties with 360° tours get 68% more views and attract more serious buyers when they do visit in person.</p>
+      <span class="service-tag">Starting at $149/property</span>
+      <div class="service-tour">
+        <iframe src="https://app.cloudpano.com/tours/CI8rgXLrKgzq" allow="vr;accelerometer;gyroscope;fullscreen" allowfullscreen></iframe>
+        <div class="service-tour-label">Live Demo — Drag to Explore</div>
+      </div>
+    </div>
+  </div>
+  <div class="service-block">
+    <div class="service-card full">
+      <div class="service-num">03</div>
+      <h3>Hospitality & Vacation Rentals</h3>
+      <p>Saint Augustine draws millions of visitors every year. Whether you run a historic bed and breakfast, a beachside vacation rental, or a boutique hotel — your guests are booking based on what they see online before they ever arrive. A PanoTitan 360° tour gives them an immersive walkthrough of your property that static photos simply can't match. Show off your unique character, your amenities, and every charming detail that makes your place worth booking. More trust. More bookings. Less vacancy.</p>
+      <span class="service-tag">Starting at $149/property</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-label">How It Works</div>
+  <h2>Up and Running in 24 Hours</h2>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><h4>Book a Call</h4><p>Tell us about your lot, listing, or property. We'll schedule a shoot at your convenience.</p></div>
+    <div class="step"><div class="step-num">2</div><h4>We Come to You</h4><p>No equipment to buy. No setup on your end. We handle everything on location.</p></div>
+    <div class="step"><div class="step-num">3</div><h4>Same Day Delivery</h4><p>Your spins are live and embed-ready before close of business the same day.</p></div>
+    <div class="step"><div class="step-num">4</div><h4>Watch It Work</h4><p>More time on listings. More engagement from online buyers. More sales.</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header">
+    <div class="section-label">Pricing</div>
+    <h2>Simple, Transparent Pricing</h2>
+    <p>No contracts. No hidden fees. Just results.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-label">Per Vehicle</div>
+      <div class="price-amount">$35</div>
+      <div class="price-per">per vehicle spin</div>
+      <p class="price-desc">Exterior + interior 360° spin, same-day delivery, embed-ready for any major dealer platform.</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Exterior 360° spin</li>
+        <li><span class="check">✓</span> Interior 360° spin</li>
+        <li><span class="check">✓</span> Same-day delivery</li>
+        <li><span class="check">✓</span> Embed-ready code</li>
+      </ul>
+      <a href="#contact" class="price-btn" style="display:block;text-align:center">Get Started</a>
+    </div>
+    <div class="price-card featured">
+      <div class="featured-badge">Most Popular</div>
+      <div class="price-label">Monthly Package</div>
+      <div class="price-amount">$299</div>
+      <div class="price-per">per month</div>
+      <p class="price-desc">Up to 20 vehicles per month, priority scheduling, and dedicated account management.</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Up to 20 vehicles/month</li>
+        <li><span class="check">✓</span> Priority scheduling</li>
+        <li><span class="check">✓</span> Account manager</li>
+        <li><span class="check">✓</span> Monthly reporting</li>
+      </ul>
+      <a href="#contact" class="price-btn" style="display:block;text-align:center">Book a Call</a>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Real Estate & Hospitality</div>
+      <div class="price-amount">$149</div>
+      <div class="price-per">per property</div>
+      <p class="price-desc">Full interior virtual tour delivered within 24 hours, ready to embed anywhere.</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Full virtual tour</li>
+        <li><span class="check">✓</span> 24hr delivery</li>
+        <li><span class="check">✓</span> Zillow & MLS ready</li>
+        <li><span class="check">✓</span> Google Street View add-on</li>
+      </ul>
+      <a href="#contact" class="price-btn" style="display:block;text-align:center">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-content">
+    <div class="section-label">About PanoTitan</div>
+    <h2>Local. Fast. Professional.</h2>
+    <p>PanoTitan is a Northeast Florida 360° media service based in Saint Augustine. We specialize in putting your inventory, listings, and properties in front of buyers the way they want to see them — interactively, immersively, and on any device.</p>
+    <p>No national call centers. No waiting weeks for delivery. Just a local team that shows up, shoots, and delivers results you can measure.</p>
+    <div class="about-markets">
+      <div class="market-item"><div class="market-dot"></div><div><strong>Car Dealerships</strong><span>Independent lots · Franchise dealers · Used car specialists</span></div></div>
+      <div class="market-item"><div class="market-dot"></div><div><strong>Real Estate Agents</strong><span>Residential · Commercial · Luxury listings</span></div></div>
+      <div class="market-item"><div class="market-dot"></div><div><strong>Hospitality & Vacation Rentals</strong><span>B&Bs · Hotels · Airbnb & VRBO properties</span></div></div>
+    </div>
+  </div>
+  <div class="about-visual">
+    <div class="about-stat"><span class="about-stat-label">Service Area</span><span class="about-stat-value">NE Florida</span></div>
+    <div class="about-stat"><span class="about-stat-label">Delivery Time</span><span class="about-stat-value">Same Day</span></div>
+    <div class="about-stat"><span class="about-stat-label">Integrations</span><span class="about-stat-value">Dealer.com · Zillow · DealerOn</span></div>
+    <div class="about-stat"><span class="about-stat-label">Phone</span><span class="about-stat-value">(904) 325-6096</span></div>
+    <div class="about-stat"><span class="about-stat-label">Email</span><span class="about-stat-value">info@panotitan.com</span></div>
+    <div class="about-stat"><span class="about-stat-label">First Spin</span><span class="about-stat-value">Free</span></div>
+    <div class="about-stat"><span class="about-stat-label">Contracts Required</span><span class="about-stat-value">None</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's Get Your First Spin Scheduled</h2>
+      <p>Fill out the form and we'll be in touch within 24 hours to schedule your free demo spin. No commitment, no contract — just results you can see.</p>
+      <div class="contact-details">
+        <div class="contact-item"><div class="contact-dot"></div><div><strong>Phone</strong><span>(904) 325-6096</span></div></div>
+        <div class="contact-item"><div class="contact-dot"></div><div><strong>Email</strong><span>info@panotitan.com</span></div></div>
+        <div class="contact-item"><div class="contact-dot"></div><div><strong>Service Area</strong><span>Saint Augustine · Jacksonville · Ponte Vedra · Palm Coast & Beyond</span></div></div>
+        <div class="contact-item"><div class="contact-dot"></div><div><strong>Hours</strong><span>Monday – Saturday, 8am – 6pm ET</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/todddavis923@gmail.com" method="POST" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="first_name" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="last_name" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Business Name</label>
+            <input type="text" name="business" placeholder="Smith Ford Dealership" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="john@smithford.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(904) 555-0100">
+          </div>
+          <div class="form-group">
+            <label>I'm interested in</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option value="automotive">Automotive 360° Spins</option>
+              <option value="realestate">Real Estate Virtual Tour</option>
+              <option value="hospitality">Hospitality / Vacation Rental</option>
+              <option value="monthly">Monthly Dealership Package</option>
+              <option value="other">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell us about your business and what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+          <div class="form-success" id="formSuccess">Thanks! We'll be in touch within 24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Your First Spin Is Free.</h2>
+  <p>Pick one vehicle or property. We'll shoot a full 360° tour at no charge. No contract. No commitment. Just results you can see.</p>
+  <a href="#contact" class="cta-btn">Claim Your Free Spin →</a>
+  <p class="cta-note">Serving Saint Augustine · Jacksonville · Ponte Vedra · Palm Coast & Beyond</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Pano<span>Titan</span></div>
+    <div class="footer-info">
+      Saint Augustine, FL · Northeast Florida<br>
+      info@panotitan.com · (904) 325-6096
+    </div>
+    <div class="footer-copy">© 2026 PanoTitan · <a href="https://tridentwebsitedesign.com" target="_blank" style="color:var(--accent);text-decoration:none">Trident Website Design</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var data = new FormData(form);
+  fetch('https://formspree.io/f/todddavis923@gmail.com', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    if (response.ok) {
+      document.getElementById('formSuccess').style.display = 'block';
+      form.reset();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
